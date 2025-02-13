@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prueba Técnica AETO
 
-## Getting Started
+## Instalación del Proyecto
 
-First, run the development server:
+Para instalar el proyecto, es necesario clonar el repositorio y luego ejecutar los siguientes comandos:
+
+```bash
+npm install
+
+# o
+
+yarn install
+```
+
+Después de instalar los paquetes necesarios, ejecutamos:
 
 ```bash
 npm run dev
-# or
+
+# o 
+
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Los resultados de este proyecto deberían estar disponibles en: [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Decisiones Técnicas para este Proyecto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Tecnologías utilizadas:
+- **Next.js** como framework principal.  
+- **TailwindCSS** para el estilado de la página.  
+- **Redux Toolkit** para el manejo de estado.  
+- **Chart.js** para el gráfico en tiempo real.  
+- **Jest** para las pruebas unitarias.  
 
-## Learn More
+Esta aplicación tiene como objetivo evaluar los conocimientos técnicos requeridos para el puesto de Desarrollador Frontend.  
+El desafío consistía en crear una aplicación que obtuviera datos de la API de TMDB, aplicando el patrón de diseño **Observer**, que es manejado por defecto con Redux Toolkit. Además, se debía implementar una funcionalidad de **debouncing** para las peticiones en tiempo real, así como la capacidad de filtrar los resultados obtenidos de la API y paginarlos. Todos estos requisitos fueron implementados correctamente y están operativos en la aplicación.
 
-To learn more about Next.js, take a look at the following resources:
+## Funcionamiento de la Aplicación
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+La aplicación es una SPA en la que, al cargar, se observa un gráfico vacío y una barra de búsqueda en la parte superior derecha, acompañada de un botón con un ícono de filtrado.  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Al escribir cualquier carácter en la barra de búsqueda, pasados **0.5 segundos**, la aplicación traerá todos los datos correspondientes a la consulta realizada por el usuario.
+- El filtrado se aplica de forma **local**, por lo que afectará únicamente los resultados visibles en la página actual. 
+- Si el usuario navega a la siguiente página y aplica los filtros, estos se aplicarán a los datos mostrados en ese momento.
 
-## Deploy on Vercel
+## Mejoras Futuras
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Implementar un filtrado múltiple que permita al usuario seleccionar más de un género de película simultáneamente.
+- Agregar una página de detalles para cada película, utilizando un **ID** como parámetro para extraer y mostrar información detallada sobre la misma.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
